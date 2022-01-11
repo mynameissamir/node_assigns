@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyparser = require("body-parser");
 const bodyParser = require("body-parser");
+const req = require("express/lib/request");
 
 
 app.use(bodyParser());
@@ -38,4 +39,11 @@ app.post("/add/user",(req,res) => {
     res.redirect("/");
 
 });
+
+app.get("/remove/user",(req,res) =>{
+    users.pop();
+    res.redirect("/");
+
+});
+
 app.listen(3000, ()=>console.log("server is running"));
